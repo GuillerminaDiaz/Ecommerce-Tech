@@ -1,22 +1,25 @@
-import express from "express";
-import http from 'http'
-import bodyParser from 'body-parser'
-import cookieParser from "cookie-parser";
-import compression from 'compression'
-import cors from 'cors'
-
-const app = express();
-
-app.use(cors({
-    credentials: true
-}));
-
-app.use(compression());
-app.use(cookieParser());
-app.use(bodyParser.json());
+import app from './app';
+import http from 'http';
+import mongoose from 'mongoose';
+import 'dotenv/config';
 
 const server = http.createServer(app);
+mongoose.Promise= Promise;
+const connectionDB= async()=>{
+    try {
+        mongoose.connect(process.env.DB_URL)
+        console.log('MongoDB connected');
+        
+    } catch (err) {
+        console.error(err.message);
+        process.exit(1);
+    }
+}
 
 server.listen(8080, () => {
+    connectionDB()
     console.log("Server running on http://localhost:8080/")
 })
+
+
+
