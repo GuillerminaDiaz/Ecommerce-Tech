@@ -4,12 +4,12 @@ import mongoose from 'mongoose';
 import 'dotenv/config';
 
 const server = http.createServer(app);
-mongoose.Promise= Promise;
-const connectionDB= async()=>{
+mongoose.Promise = Promise;
+const connectionDB = async () => {
     try {
         mongoose.connect(process.env.DB_URL)
         console.log('MongoDB connected');
-        
+
     } catch (err) {
         console.error(err.message);
         process.exit(1);
