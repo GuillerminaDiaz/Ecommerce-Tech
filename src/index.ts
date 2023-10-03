@@ -16,9 +16,9 @@ const connectionDB = async () => {
     }
 }
 
-server.listen(8080, () => {
+server.listen(3000, () => {
     connectionDB()
-    console.log("Server running on http://localhost:8080/")
+    console.log("Server running on http://localhost:3000/")
 })
 
 
