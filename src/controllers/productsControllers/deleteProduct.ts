@@ -1,3 +1,3 @@
-const deleteProduct = () => {
+export const deleteProduct = () => {
     
 }

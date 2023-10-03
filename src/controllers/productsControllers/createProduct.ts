@@ -1,3 +1,3 @@
-const createProduct = () => {
+export const createProduct = () => {
 
 }
