@@ -7,7 +7,7 @@ import { deleteProductHanlder } from '../handlers/products/deleteProductHandler'
 const productRouter = Router();
 
 productRouter.get('/products', getAllProductsHandler)
-productRouter.get('/product/:id', getOneProductHandler)
+productRouter.get('/product/:_id', getOneProductHandler)
 productRouter.post('/product', postProductHandler)
 // productRouter.put('/product/:id', updateProduct)
 productRouter.delete('/product/:id', deleteProductHanlder)
