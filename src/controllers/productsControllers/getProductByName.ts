@@ -1,11 +1,12 @@
 import Product from "../../models/products";
-import mongoose from "mongoose";
 
-export const getProductById = async (id: string) => {
+export const getProductByName = async (name: string) => {
     try {
-        const oneProduct = await Product.findOne({ _id: id }).exec();
-        
-        console.log(oneProduct);
+        const oneProduct = await Product.find({ name: {
+            $regex: name
+        }}).exec();
+
+        console.log(oneProduct, 'controller');
 
         if (!oneProduct) {
             throw new Error("Product not found");

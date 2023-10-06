@@ -1,11 +1,12 @@
+import mongoose from "mongoose";
 import { getProductById } from "../../controllers/productsControllers/getProductById";
 import { Request, Response } from "express"
 
 export const getOneProductHandler = async (req: Request, res: Response) => {
-    const {id} = req.params;
+    const { _id } = req.params;
 
     try {
-        const product = await getProductById(id)
+        const product = await getProductById(_id)
 
         res.status(200).send(product)
         
